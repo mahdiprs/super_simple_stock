@@ -22,8 +22,25 @@ stock_list.append(Stock("ALE", "Common", 23, 0, 60))
 stock_list.append(Stock("GIN", "Preferred", 8, 2, 100))
 stock_list.append(Stock("JOE", "Common", 13, 0, 250))
 
-for item in stock_list:
-    print item.stock_symbol
+"""
+ function to calculate the dividend yield
+"""
+
+def dividend_yield(stock,price):
+    # type: (stock, float) -> float
+    if stock.stock_type == "Common":
+        dividend_yield_value = stock.last_dividend/price
+    else:
+        dividend_yield_value = stock.fixed_dividend*stock.par_value* 0.01 / price
+    return dividend_yield_value
+
+print(dividend_yield(stock_list[3], 1))
+
+
+
+
+
+
 
 
 
