@@ -1,6 +1,6 @@
 """
 
-This file contains all relevant functions and classes for the Super Simple Stock Market assignment
+This file contains all relevant functions for calculation GBCE
 __author__ = "Mahdi Parsa"
 """
 import math

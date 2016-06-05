@@ -1,3 +1,5 @@
+""" Contains Stock class and methods"""
+
 import time
 from Trade import Trade
 

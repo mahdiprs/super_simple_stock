@@ -1,3 +1,6 @@
+""" Contains Trade class"""
+
+
 class Trade(object):
     def __init__(self, stock_symbol, trade_time, quantity_of_share, trade_indicator, trade_price):
         # type: (str, time, int, str, float) -> Trade
