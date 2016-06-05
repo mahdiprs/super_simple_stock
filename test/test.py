@@ -1,4 +1,5 @@
-from src.funcs import *
+from src.Stock import Stock
+from src.GBCE import *
 import unittest
 
 

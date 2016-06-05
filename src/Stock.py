@@ -5,6 +5,7 @@ from Trade import Trade
 # create class stock
 class Stock(object):
     all_trades = list()  # a list to keep track of all trades
+    FIFTEEN_MINUTES = 15 * 60
 
     def __init__(self, stock_symbol, stock_type, last_dividend, fixed_dividend, par_value, stock_price=0):
         # type: (str, str, int, float, int, float) -> Stock
@@ -87,7 +88,7 @@ class Stock(object):
             print "No trades have been recorded."
         else:
             for a_trade in self.all_trades:
-                if current_time <= a_trade.trade_time + 15 * 60:
+                if current_time <= a_trade.trade_time + self.FIFTEEN_MINUTES:
                     trade_price_times_quantity += a_trade.quantity_of_share * a_trade.trade_price
                     sum_quantity += a_trade.quantity_of_share
             if sum_quantity == 0:
