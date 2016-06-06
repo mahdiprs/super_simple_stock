@@ -42,3 +42,4 @@ class Trade(object):
         if not isinstance(value, (int, long, float)):
             raise TypeError('The value of price should be a number.')
         self._trade_price = value
+

@@ -7,7 +7,10 @@ import math
 
 
 def geometric_mean(stock_prices):
-    """ Calculates the geometric means of a list of numbers"""
+    """ Calculates the geometric means of a list of numbers
+    :param stock_prices:
+    :return:
+    """
     try:
         product = 1
         for item in stock_prices:
