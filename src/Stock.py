@@ -1,4 +1,4 @@
-""" Contains Stock class and methods"""
+""" A module to add stock and its properties"""
 
 import time
 from func_binary_search import get_index
@@ -27,7 +27,7 @@ class Stock(object):
     @stock_symbol.setter
     def stock_symbol(self, value):
         if value.upper() not in {"TEA", "POP", "ALE", "GIN", "JOE"}:
-            raise TypeError('Invalid stock label.')
+            raise TypeError("Invalid stock label.")
         self._stock_symbol = value
 
     """"" Validating the stock types."""
@@ -38,7 +38,7 @@ class Stock(object):
     @stock_type.setter
     def stock_type(self, value):
         if value.upper() not in {"COMMON", "PREFERRED"}:
-            raise TypeError('It is not a valid stock type.')
+            raise TypeError("It is not a valid stock type.")
         self._stock_type = value
 
     """ Validating last dividend type."""
@@ -49,7 +49,7 @@ class Stock(object):
     @last_dividend.setter
     def last_dividend(self, value):
         if not isinstance(value, (int, long, float)):
-            raise TypeError('Invalid last dividend type.')
+            raise TypeError("Invalid last dividend type.")
         self._last_dividend = value
 
     """ Validating fixed dividend type."""
@@ -60,9 +60,10 @@ class Stock(object):
     @fixed_dividend.setter
     def fixed_dividend(self, value):
         if not isinstance(value, (int, long, float)) and not value:
-            raise TypeError('Invalid fixed dividend type.')
+            raise TypeError("Invalid fixed dividend type.")
         self._fixed_dividend = value
 
+    """ Validating par value type."""
     @property
     def par_value(self):
         return self._par_value
@@ -70,9 +71,10 @@ class Stock(object):
     @par_value.setter
     def par_value(self, value):
         if not isinstance(value, (int, long)):
-            raise TypeError('The value of the Par Value should be an integer. mitchell Invalid parameter value type')
+            raise TypeError("Invalid parameter value type.")
         self._par_value = value
 
+    """ Validating stock price type."""
     @property
     def stock_price(self):
         return self._stock_price
@@ -80,7 +82,7 @@ class Stock(object):
     @stock_price.setter
     def stock_price(self, value):
         if not isinstance(value, (int, long, float)):
-            raise TypeError('The value of price should be a number.')
+            raise TypeError("Invalid price value type.")
         self._stock_price = value
 
     def dividend_yield(self, price):
@@ -99,20 +101,18 @@ class Stock(object):
             ratio = price / dividend
             return ratio
         else:
-            return "The P/E ratio is not defined for stock %s since dividend yield is zero. " % self.stock_symbol
+            raise TypeError("The P/E ratio is not defined for this stock.")
 
     def record_trade(self, quantity_of_share, trade_indicator, trade_price):
         # type: (int, str, float) -> Trade
-
         """ Record a trade for a given stock with quantity of share, trade indicator, trade price.
         the trade indicator is either buy or sell """
-
         try:
             trade = Trade(self.stock_symbol, time.time(), quantity_of_share, trade_indicator, trade_price)
             self.all_trades.append(trade)
-            print ("Adding a new trade was successful.")
+            print ("A new trade is added.")
         except:
-            raise TypeError("Failure to add new trade.")
+            raise TypeError("Failure to add a new trade.")
 
     @property
     def calculate_volume_stock_price(self):
@@ -132,7 +132,6 @@ class Stock(object):
     @property
     def stock_last_trade_price(self):
         """ Find the latest trade recorded and the latest price for a given stock"""
-
         try:
             return self.all_trades[-1].trade_price
         except IndexError:
