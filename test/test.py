@@ -2,6 +2,8 @@ from src.Stock import Stock
 from src.GBCE import *
 import unittest
 
+print not isinstance(2, (int, long, float))
+
 
 class SimpleStockMarketTest(unittest.TestCase):
     """ Test Simple stock functions."""

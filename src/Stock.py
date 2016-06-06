@@ -6,7 +6,7 @@ from Trade import Trade
 
 # create class stock
 class Stock(object):
-    FIFTEEN_MINUTES = 15 * 60
+    FIFTEEN_MINUTES = 15 * 60  # constant for converting 15 minutes to second, use it for retrieving recorded trades
 
     def __init__(self, stock_symbol, stock_type, last_dividend, fixed_dividend, par_value, stock_price=0):
         # type: (str, str, int, float, int, float) -> Stock
@@ -44,6 +44,46 @@ class Stock(object):
         if value.upper() not in {"COMMON", "PREFERRED"}:
             raise TypeError('It is not a valid stock type.')
         self._stock_type = value
+
+    @property
+    def last_dividend(self):
+        return self._last_dividend
+
+    @last_dividend.setter
+    def last_dividend(self, value):
+        if not isinstance(value, (int, long, float)):
+            raise TypeError('The value of the last dividend should be a number.')
+        self._last_dividend = value
+
+    @property
+    def fixed_dividend(self):
+        return self._fixed_dividend
+
+    @fixed_dividend.setter
+    def fixed_dividend(self, value):
+        if not isinstance(value, (int, long, float)) and not value:
+            raise TypeError('The value of the last dividend should be a number or an empty string.')
+        self._fixed_dividend = value
+
+    @property
+    def par_value(self):
+        return self._par_value
+
+    @par_value.setter
+    def par_value(self, value):
+        if not isinstance(value, (int, long)):
+            raise TypeError('The value of the Par Value should be an integer.')
+        self._par_value = value
+
+    @property
+    def stock_price(self):
+        return self._stock_price
+
+    @stock_price.setter
+    def stock_price(self, value):
+        if not isinstance(value, (int, long, float)):
+            raise TypeError('The value of price should be a number.')
+        self._stock_price = value
 
     def dividend_yield(self, price):
         """ Given a price for a stock it calculates the Dividend Yield """
