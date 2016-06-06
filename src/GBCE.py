@@ -7,10 +7,7 @@ import math
 
 
 def geometric_mean(stock_prices):
-    """ Calculates the geometric means of a list of numbers
-    :param stock_prices:
-    :return:
-    """
+    """ Calculates the geometric means of a list of numbers"""
     try:
         product = 1
         for item in stock_prices:
@@ -23,7 +20,6 @@ def geometric_mean(stock_prices):
 
 def calculate_gbce(stocks):
     """ Calculate the gbce all share index"""
-
     try:
         volume_stock_price = []
         for item in stocks:

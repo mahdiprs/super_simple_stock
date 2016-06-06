@@ -57,16 +57,7 @@ class SimpleStockMarketTest(unittest.TestCase):
         """ Test answer  calculate volume stock price is correct."""
         self.assertEqual(self.stock_TEA.calculate_volume_stock_price, 6.07)
 
-    def test_stock_last_trade_price(self):
-        """ Test the method returns the latest price of a stock properly"""
-
-        self.assertEqual(self.stock_TEA.stock_last_trade_price, 4)
-        self.assertEqual(self.stock_TEA.stock_last_trade_price, 5)
-
-    def test_calculate_gbce(self):
-        """ Test the GBCE function """
-        self.assertEqual(calculate_gbce(self.stocks),7)
-
 
 if __name__ == '__main__':
     unittest.main()
+
