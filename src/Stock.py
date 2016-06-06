@@ -144,3 +144,6 @@ class Stock(object):
         latest_trade = self.all_trades[num_recorded_trades-1]
         latest_trade_price = latest_trade.trade_price
         return latest_trade_price
+
+
+

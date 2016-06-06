@@ -22,3 +22,23 @@ class Trade(object):
         if value.upper() not in {"BUY", "SELL"}:
             raise TypeError('It is not a valid trade label.')
         self._trade_indicator = value
+
+    @property
+    def quantity_of_share(self):
+        return self._quantity_of_share
+
+    @quantity_of_share.setter
+    def quantity_of_share(self, value):
+        if not isinstance(value, (int, long)):
+            raise TypeError('The value of quantity of share should be an integer number.')
+        self._quantity_of_share = value
+
+    @property
+    def trade_price(self):
+        return self._trade_price
+
+    @trade_price.setter
+    def trade_price(self, value):
+        if not isinstance(value, (int, long, float)):
+            raise TypeError('The value of price should be a number.')
+        self._trade_price = value
