@@ -1,6 +1,5 @@
 """ Contains Trade class"""
 
-
 class Trade(object):
     def __init__(self, stock_symbol, trade_time, quantity_of_share, trade_indicator, trade_price):
         # type: (str, time, int, str, float) -> Trade
@@ -10,9 +9,7 @@ class Trade(object):
         self.trade_indicator = trade_indicator
         self.trade_price = trade_price
 
-    (" A method for validating a trade indicator. These indicators are \n"
-     "    {\"BUY\", \"SELL\"} ")
-
+    """Validate trade indicator type."""
     @property
     def trade_indicator(self):
         return self._trade_indicator
@@ -20,9 +17,10 @@ class Trade(object):
     @trade_indicator.setter
     def trade_indicator(self, value):
         if value.upper() not in {"BUY", "SELL"}:
-            raise TypeError('It is not a valid trade label.')
+            raise TypeError("Invalid trade indicator.")
         self._trade_indicator = value
 
+    """Validate quantity of share type."""
     @property
     def quantity_of_share(self):
         return self._quantity_of_share
@@ -30,9 +28,10 @@ class Trade(object):
     @quantity_of_share.setter
     def quantity_of_share(self, value):
         if not isinstance(value, (int, long)):
-            raise TypeError('The value of quantity of share should be an integer number.')
+            raise TypeError("Invalid quantity of share type.")
         self._quantity_of_share = value
 
+    """Validate trade price type."""
     @property
     def trade_price(self):
         return self._trade_price
@@ -40,6 +39,6 @@ class Trade(object):
     @trade_price.setter
     def trade_price(self, value):
         if not isinstance(value, (int, long, float)):
-            raise TypeError('The value of price should be a number.')
+            raise TypeError("Invalid trade price type.")
         self._trade_price = value
 
