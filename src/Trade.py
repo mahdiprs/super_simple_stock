@@ -41,4 +41,3 @@ class Trade(object):
         if not isinstance(value, (int, long, float)):
             raise TypeError("Invalid trade price type.")
         self._trade_price = value
-
