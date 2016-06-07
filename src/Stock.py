@@ -11,6 +11,10 @@ class Stock(object):
 
     def __init__(self, stock_symbol, stock_type, last_dividend, fixed_dividend, par_value, stock_price=0):
         # type: (str, str, int, float, int, float) -> Stock
+        """
+
+        :type stock_symbol: float
+        """
         self.stock_symbol = stock_symbol
         self.stock_type = stock_type
         self.last_dividend = last_dividend

@@ -10,7 +10,6 @@ def get_index_binary_search(trades, x):
         return -1
 
     if valid(trades[0].trade_time, x):
-        print "here"
         return 0
 
     if not valid(trades[-1].trade_time, x):
