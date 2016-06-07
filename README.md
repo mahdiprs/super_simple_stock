@@ -58,7 +58,7 @@ To test the code of the technical test, it has been used Test Driven Approach.
 
 ##### Try Yourself
 
-The code for the technical test was built as an Pycharm project. To compile the code, download the folder super-simple-stock and import the project in Pycharm.
+The code for the technical test was built as an Pycharm project. To compile the code, download the folder super_simple_stock and import the project in Pycharm.
 
 
 
