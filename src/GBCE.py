@@ -3,7 +3,6 @@
 This file contains all relevant functions for calculation GBCE
 __author__ = "Mahdi Parsa"
 """
-import math
 
 
 def geometric_mean(stock_prices):
@@ -13,7 +12,7 @@ def geometric_mean(stock_prices):
         for item in stock_prices:
             product = float(product) * float(item)
         number_of_items = len(stock_prices)
-        return math.pow(product, 1 / float(number_of_items))
+        return product ** (1 / float(number_of_items))
     except:
         raise TypeError("The stocks prices list is empty.")
 
