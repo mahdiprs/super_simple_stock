@@ -42,7 +42,7 @@ class Stock(object):
     @stock_type.setter
     def stock_type(self, value):
         if value.upper() not in {"COMMON", "PREFERRED"}:
-            raise TypeError("It is not a valid stock type.")
+            raise TypeError("Invalid stock type.")
         self._stock_type = value
 
     """ Validating last dividend type."""
