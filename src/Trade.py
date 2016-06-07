@@ -1,4 +1,4 @@
-""" Contains Trade class"""
+""" Contains Trade class and its methods"""
 
 
 class Trade(object):

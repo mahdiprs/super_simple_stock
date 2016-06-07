@@ -1,9 +1,11 @@
+""" Unittest for creating stock class an its method """
+
 from src.Stock import Stock
 import unittest
 
 
 class StockTest(unittest.TestCase):
-    """ Test Simple stock functions."""
+    """ Test  stock functions."""
     stock_TEA = Stock("TEA", "Common", 0, 0, 100)
     stock_POP = Stock("POP", "Common", 8, 0, 100)
     stock_ALE = Stock("ALE", "Common", 23, 0, 60)

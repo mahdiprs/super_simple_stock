@@ -1,3 +1,6 @@
+""" A module for finding the index of the first trades recorded within 15 minutes of the current time"""
+
+
 def valid(x, y):
     """ Check x>=y."""
     return x >= y

@@ -1,3 +1,6 @@
+""" Unittest for creating Trades and other functions """
+
+
 from src.Stock import Stock
 from src.binary_search import *
 import time
