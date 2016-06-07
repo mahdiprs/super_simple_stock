@@ -1,7 +1,7 @@
 """ A module to add stock and its properties"""
 
 import time
-from func_binary_search import get_index
+from binary_search import get_index_binary_search
 from Trade import Trade
 
 
@@ -119,7 +119,7 @@ class Stock(object):
         """ Given a stock it calculates volume stock price based on trade in past 15 minuets"""
         trade_price_times_quantity = 0.0
         sum_quantity = 0
-        index = get_index(self.all_trades, time.time()-self.FIFTEEN_MINUTES)
+        index = get_index_binary_search(self.all_trades, time.time()-self.FIFTEEN_MINUTES)
         for a_trade in self.all_trades[index:]:
             trade_price_times_quantity += a_trade.quantity_of_share * a_trade.trade_price
             sum_quantity += a_trade.quantity_of_share

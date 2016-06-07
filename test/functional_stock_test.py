@@ -1,4 +1,5 @@
 from src.Stock import Stock
+from src.GBCE import *
 import unittest
 
 
@@ -12,13 +13,16 @@ class StockTest(unittest.TestCase):
 
     def test_record_trade(self):
         """ Does it record a trade successfully. """
+        self.trade_paremter= list()
+        for indicator_iter in {"Sell", "Buy", "Invalid_indicator"}:
+            for quantity_share_iter in range(0,100,1):
+                for prince_iterator in range(0,1000,2):
+                    self.trade_paremter.append([quantity_share_iter, indicator_iter, prince_iterator])
+
+
+
 
         self.assertIsNone(self.stock_ALE.record_trade(5, "sell", 4))
-        self.assertIsNone(self.stock_ALE.record_trade("", "sell", 1))
-        self.assertIsNone(self.stock_ALE.record_trade(2, "sell", "c"))
-        self.assertIsNone(self.stock_JOE.record_trade(5, "buy", 2))
-        self.assertIsNone(self.stock_POP.record_trade(5, "buy", 4))
-        self.assertIsNone(self.stock_POP.record_trade(5, "Bell", 4))
 
     """ record four trades for testing the list of all trades"""
     stock_TEA.record_trade(2, "sell", 3)
@@ -27,6 +31,9 @@ class StockTest(unittest.TestCase):
     stock_GIN.record_trade(7, "sell", 8)
 
     stocks = {stock_TEA, stock_GIN}
+
+    for item in stock_TEA.all_trades:
+        print (item.trade_price)
 
     def test_get_all_trades(self):
         """ Check all trades recorded """
