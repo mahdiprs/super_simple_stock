@@ -8,11 +8,11 @@ __author__ = "Mahdi Parsa"
 def geometric_mean(stock_prices):
     """ Calculates the geometric means of a list of numbers"""
     try:
-        product = 1
+        product = 1.0
         for item in stock_prices:
             product = float(product) * float(item)
         number_of_items = len(stock_prices)
-        return product ** (1 / float(number_of_items))
+        return product ** (1.0 / float(number_of_items))
     except:
         raise TypeError("The stocks prices list is empty.")
 

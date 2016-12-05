@@ -9,7 +9,7 @@ from Trade import Trade
 class Stock(object):
     FIFTEEN_MINUTES = 15 * 60  # constant for retrieving recorded trades in past 15 minutes
 
-    def __init__(self, stock_symbol, stock_type, last_dividend, fixed_dividend, par_value, stock_price=0):
+    def __init__(self, stock_symbol, stock_type, last_dividend, fixed_dividend, par_value, stock_price=0.0):
         # type: (str, str, int, float, int, float) -> Stock
         """
 
@@ -102,7 +102,7 @@ class Stock(object):
 
         dividend = self.dividend_yield(price)
         if dividend > 0:
-            ratio = price / dividend
+            ratio = price / float(dividend)
             return ratio
         else:
             raise TypeError("The P/E ratio is not defined for this stock.")
@@ -123,13 +123,16 @@ class Stock(object):
         """ Given a stock it calculates volume stock price based on trade in past 15 minuets"""
         trade_price_times_quantity = 0.0
         sum_quantity = 0
-        index = get_index_binary_search(self.all_trades, time.time()-self.FIFTEEN_MINUTES)
-        for a_trade in self.all_trades[index:]:
-            trade_price_times_quantity += a_trade.quantity_of_share * a_trade.trade_price
-            sum_quantity += a_trade.quantity_of_share
+        try:
+            index = get_index_binary_search(self.all_trades, time.time() - self.FIFTEEN_MINUTES)
+            for a_trade in self.all_trades[index:]:
+                trade_price_times_quantity += a_trade.quantity_of_share * a_trade.trade_price
+                sum_quantity += a_trade.quantity_of_share
+        except:
+            raise ValueError("No shares were available when stock recorded.")
 
         if sum_quantity == 0:
-            raise ValueError("Quantity of shares were zero when stock recorded.")
+            raise ValueError("No shares were available when stock recorded.")
         else:
             return trade_price_times_quantity / float(sum_quantity)
 
@@ -140,4 +143,3 @@ class Stock(object):
             return self.all_trades[-1].trade_price
         except IndexError:
             raise TypeError("No trade records available.")
-

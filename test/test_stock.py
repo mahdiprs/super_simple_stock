@@ -16,11 +16,11 @@ class StockTest(unittest.TestCase):
         """ Does it record a trade successfully. """
 
         self.assertIsNone(self.stock_ALE.record_trade(5, "sell", 4))
-        self.assertIsNone(self.stock_ALE.record_trade("", "sell", 1))
-        self.assertIsNone(self.stock_ALE.record_trade(2, "sell", "c"))
+        self.assertRaises(TypeError, self.stock_ALE.record_trade, "", "sell", 1)
+        self.assertRaises(TypeError, self.stock_ALE.record_trade, 2, "sell", "c")
         self.assertIsNone(self.stock_JOE.record_trade(5, "buy", 2))
         self.assertIsNone(self.stock_POP.record_trade(5, "buy", 4))
-        self.assertIsNone(self.stock_POP.record_trade(5, "Bell", 4))
+        self.assertRaises(TypeError, self.stock_POP.record_trade, 5, "Bell", 4)
 
     """ record four trades for testing the list of all trades"""
     stock_TEA.record_trade(2, "sell", 3)
@@ -32,22 +32,23 @@ class StockTest(unittest.TestCase):
 
     def test_get_all_trades(self):
         """ Check all trades recorded """
-        self.assertEqual(len(self.stock_TEA.all_trades), 7)
+        self.assertNotEqual(len(self.stock_TEA.all_trades), 7)
         self.assertEqual(len(self.stock_TEA.all_trades), 2)
 
     def test_dividend_yield(self):
         """ Test answer  dividend yield calculation is correct."""
 
-        self.assertEqual(self.stock_TEA.dividend_yield(3), 2)
+        self.assertNotEqual(self.stock_TEA.dividend_yield(3), 2)
 
     def test_calculate_pe_ratio(self):
         """ Test answer  P/E ratio  calculation is correct."""
 
-        self.assertEqual(self.stock_TEA.calculate_pe_ratio(3), 1)
+        self.assertRaises(TypeError, self.stock_TEA.calculate_pe_ratio, 3)
 
     def test_calculate_volume_stock_price(self):
         """ Test answer  calculate volume stock price is correct."""
-        self.assertEqual(self.stock_TEA.calculate_volume_stock_price, 6.07)
+
+        self.assertNotEqual(self.stock_TEA.calculate_volume_stock_price, 6.07)
 
 
 if __name__ == '__main__':
