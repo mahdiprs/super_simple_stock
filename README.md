@@ -44,7 +44,7 @@ JOE           | Common    | 13 |    | 250
 ### 2. Solution
 A  solution for the assignment is designed to provide a service which has
 operations to calculate the dividend yield, P/E Ratio,Stock Price and 
-record trades for a given stock. Besides, theservice provides an operation
+record trades for a given stock. Besides, the service provides an operation
 to calculate the GBCE All Share Index for all stocks supported by the 
 Super Simple Stocks application. Providing this service, all the 
 requirements of the assignment are met.
@@ -58,10 +58,10 @@ explicitly in assignment I have not considered in my design.
 ##### Unit Test
 
 I follow a Test Driven Approach to test the code of the technical test. 
-A comprehensive unittest conducted.I believe that the application benefits
+A comprehensive unittest conducted. I believe that the application benefits
 an extensive functional test. However, due to time constraint I was not 
 able to implement the functional testing. I can complete this task if 
-the assignment deadline extended for a day.
+the assignment deadline extended.
 
 ##### Try Yourself
 
